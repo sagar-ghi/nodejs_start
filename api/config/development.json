@@ -1,0 +1,13 @@
+{
+    "admin": {
+      "email": "sa.@gmail.com",
+      "password": "**"
+    },
+    "user": {
+      "email": "sa.@gmail.com",
+      "password": "**"
+    },
+    "port": 4567,
+    "message":"This is a test message for development env"
+  }
+  
