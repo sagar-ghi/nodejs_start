@@ -13,29 +13,36 @@
 //Boolean
 //Array
 
-//ObjectId
 
-//Map
-//Buffer
-//Mixed
+//extra rule
+// required
+// default value
+
+// custom validation
+// get
+// set
+
 
 import mongoose from 'mongoose'
 
+
+
 const userSchema = new mongoose.Schema({
-    username: String,
+    username: { type: String, required: true, },
     firstName: String,
     lastName: String,
-    email: String,
+    email: { type: String, required: true, unique: true },
     number: Number,
-    hobbies: [String]
+    hobbies: [String],
+    isBlocked: { type: Boolean, default: false },
+    password: { type: String, required: true, },
+    createdAt: {
+        type: Date,
+        default: Date.now()
+    }
 })
-//['football','fortnite']
 
 const User = mongoose.model('User', userSchema)
 
 export default User
 
-
-
-// class =>blure print
-// ghar
