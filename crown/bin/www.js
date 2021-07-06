@@ -31,7 +31,7 @@ var server = http.createServer(app);
  * Listen on provided port, on all network interfaces.
  */
 try {
-  await mongoose.connect('mongodb://localhost:27017/generated',
+  await mongoose.connect('mongodb://localhost:27017/crown',
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,
