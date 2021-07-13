@@ -13,6 +13,7 @@ import { inputValidator } from "../../middleware/inputValidator.js";
 import { onForgotPassword } from "../../mailer/forgotPassword.js";
 import { isAdmin } from "../../middleware/isAdmin.js";
 import { auth } from "../../middleware/auth.js";
+import { validateObjectId } from "../../middleware/validateObjectId.js";
 
 const router = Router();
 
@@ -72,7 +73,7 @@ router.get("/paginated", async (req, res) => {
 //put
 router.put(
   "/update/:id",
-  inputValidator(userUpdateSchema),
+  [inputValidator(userUpdateSchema), validateObjectId],
   async (req, res) => {
     const user = await User.findOneAndUpdate(
       { _id: req.params.id },
