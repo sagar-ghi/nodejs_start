@@ -1,4 +1,5 @@
 
+import dotenv from 'dotenv'
 import express from 'express'
 import asyncErrors from 'express-async-errors'
 import morgan from 'morgan'
@@ -8,7 +9,7 @@ import { errorHandler } from './middleware/error.js';
 import userRouter from './api/user/router.js'
 import taskRouter from './api/task/router.js'
 
-
+dotenv.config()
 const app = express()
 
 app.use(cors())
@@ -32,7 +33,7 @@ app.use((err, req, res, _next) => {
     res.locals.error = req.app.get('env') === 'development' ? err : {};
 
     //log
-
+    console.log(err)
     // render the error page
     res.status(500).send("Internal server error");
     // res.render('error');
