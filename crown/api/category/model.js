@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 //parent=>Vechiles
 //child =>cars,truck
-const categorySchema = new mongoose.Schema({
+export const categorySchema = new mongoose.Schema({
   parent: {
     type: String,
     required: true,
@@ -24,3 +24,4 @@ const categorySchema = new mongoose.Schema({
 const Category = mongoose.model("Category", categorySchema);
 
 export default Category;
+//products

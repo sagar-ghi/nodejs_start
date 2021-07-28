@@ -8,6 +8,7 @@ import { errorHandler } from "./middleware/error.js";
 
 import userRoute from "./api/user/route.js";
 import categoryRoute from "./api/category/route.js";
+import productRoute from "./api/product/route.js";
 
 dotenv.config();
 const app = express();
@@ -20,6 +21,7 @@ app.use(express.static(path.join(path.resolve(), "public")));
 
 app.use("/users", userRoute);
 app.use("/categories", categoryRoute);
+app.use("/products", productRoute);
 
 // error handler
 app.use(errorHandler);

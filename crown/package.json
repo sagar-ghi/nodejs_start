@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "start": "nodemon ./bin/www",
-    "dev": "DEBUG=* nodemon ./bin/www"
+    "dev": "DEBUG=genereated:* nodemon ./bin/www"
   },
   "dependencies": {
     "@sendgrid/mail": "^7.4.5",

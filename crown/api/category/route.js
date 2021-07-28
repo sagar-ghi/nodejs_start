@@ -8,6 +8,9 @@ const router = express.Router();
 //CRUD
 router.post("/create", [auth, isAdmin], async (req, res) => {
   const category = new Category(req.body);
+
+console.log(category)
+  return
   await category.save();
 
   res.send(category);
@@ -31,9 +34,12 @@ router.get("/menu", async (req, res) => {
 router.get("/paginate", async (req, res) => {
   const { limit = 5, page = 1 } = req.query;
   const skip = (parseInt(page) - 1) * parseInt(limit);
-  const categories = await Category.find().skip(skip).limit(parseInt(limit));
+  const [categories, count] = await Promise.all([
+    Category.find().skip(skip).limit(parseInt(limit)),
+    Category.count(),
+  ]);
 
-  res.send(categories);
+  res.send({ data: categories, count });
 });
 
 //cursor pagination
@@ -80,7 +86,5 @@ router.delete(
     res.send(result);
   }
 );
-//pagination
-// task;
 
 export default router;
